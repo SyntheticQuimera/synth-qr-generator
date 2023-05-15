@@ -1,0 +1,21 @@
+[debug] [2023-05-15T20:34:16.512Z] ----------------------------------------------------------------------
+[debug] [2023-05-15T20:34:16.516Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\synth\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-05-15T20:34:16.516Z] CLI Version:   12.0.0
+[debug] [2023-05-15T20:34:16.517Z] Platform:      win32
+[debug] [2023-05-15T20:34:16.517Z] Node Version:  v18.16.0
+[debug] [2023-05-15T20:34:16.518Z] Time:          Mon May 15 2023 16:34:16 GMT-0400 (hora estándar de Chile)
+[debug] [2023-05-15T20:34:16.518Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-15T20:34:16.529Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-15T20:34:16.529Z] > authorizing via signed-in user (syntheticquimera@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\synth\WebDev\synth-qr-generator
+

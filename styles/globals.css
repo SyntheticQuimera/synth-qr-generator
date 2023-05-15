@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+background-color: black;
+}
+
+label {
+    background:transparent;
+}
+
+h1,span, p, h2,h3,h4,h5 {
+    color: white;
+}
+select option {
+    background-color: #fff; /* color de fondo de las opciones */
+    color: #000; /* color del texto de las opciones */
+  }
+
