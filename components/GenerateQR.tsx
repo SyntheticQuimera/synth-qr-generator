@@ -1,13 +1,7 @@
 import React, { useEffect, useState } from "react";
 import html2canvas from "html2canvas";
-import { Form, Button, Image, FloatingLabel } from "react-bootstrap";
-import {
-  QRCode,
-  IProps,
-  CornerRadii,
-  EyeColor,
-  InnerOuterEyeColor,
-} from "react-qrcode-logo";
+import { Form, Button, FloatingLabel } from "react-bootstrap";
+import { QRCode, EyeColor } from "react-qrcode-logo";
 import { storage } from "@/firebase.config";
 import { getDownloadURL, ref, uploadString } from "firebase/storage";
 import { saveQRCode } from "@/utils/firebaseFunctions";
