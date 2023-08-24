@@ -1,8 +1,6 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "next/font/google";
 import { GenerateQR } from "@/components/GenerateQR";
-import { Navigator } from "@/components/Navigator";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,12 +9,11 @@ export default function Home() {
     <>
       <Head>
         <title>SynthQR</title>
-        <meta name='description' content='Dynamic QR Generator' />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <link rel='icon' href='/favicon.ico' />
+        <meta name="description" content="Dynamic QR Generator" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Navigator />
         <GenerateQR />
       </main>
     </>

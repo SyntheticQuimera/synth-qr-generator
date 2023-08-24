@@ -2,19 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-background-color: black;
+main {
+    background: rgb(33,33,33);
+    background: radial-gradient(circle, rgba(33,33,33,1) 0%, rgba(21,21,21,1) 35%, rgba(0,0,0,1) 100%);
+color: white;
 }
-
-label {
-    background:transparent;
-}
-
-h1,span, p, h2,h3,h4,h5 {
-    color: white;
-}
-select option {
-    background-color: #fff; /* color de fondo de las opciones */
-    color: #000; /* color del texto de las opciones */
-  }
 

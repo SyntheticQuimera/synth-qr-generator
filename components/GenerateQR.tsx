@@ -111,53 +111,57 @@ export const GenerateQR: React.FC<GenerateProps> = () => {
   };
   return (
     <>
-      <div className='flex items-start sm:justify-center sm:items-center py-8 px-6'>
-        <h1>Generate QR Code</h1>
+      <div className="flex justify-center py-8 px-6">
+        <h1 className="md:text-6xl uppercase font-black text-4xl">
+          QR Code Generator
+        </h1>
       </div>
-      <div className='flex gap-12 px-6 py-6 justify-center flex-col w-fit sm:w-full lg:flex-row items-center lg:items-start min-h-screen'>
-        <div className='flex space-y-4 flex-col w-full md:w-1/2 lg:w-1/3'>
-          <Form className='space-y-4 d-grid' onSubmit={handleSubmit}>
-            <FloatingLabel label='Please enter a URL here'>
+      <div className="flex w-full md:flex-row flex-col justify-center gap-4 p-4">
+        <div className="flex space-y-4 flex-col w-full md:max-w-md">
+          <Form className="space-y-4 d-grid" onSubmit={handleSubmit}>
+            <FloatingLabel label="Please enter a URL here">
               <Form.Control
                 value={qrCode}
-                type='text'
-                placeholder='Please enter a URL here:'
+                type="text"
+                placeholder="Please enter a URL here:"
                 onChange={(event) => setQrCode(event.target.value)}
               />
             </FloatingLabel>
             {logoImage.length > 0 ? (
               <div
                 onClick={() => setLogoImage("")}
-                className='w-full h-14 active:ring-4 ring-[#0d6efd] ring-opacity-30 cursor-pointer rounded-md flex font-semibold items-center text-white justify-center bg-red-500'>
+                className="w-full h-14 active:ring-4 uppercase ring-[#0d6efd] ring-opacity-30 cursor-pointer rounded-md flex font-semibold items-center justify-center bg-red-500"
+              >
                 Remove logo
               </div>
             ) : (
-              <Form.Label htmlFor='file-input'>
-                <div className='w-full h-14 border active:ring-4 ring-[#0d6efd] ring-opacity-30 border-[#ced4da] cursor-pointer rounded-md flex font-semibold items-center justify-center bg-white'>
+              <Form.Label htmlFor="file-input">
+                <div className="w-full h-14 text-black uppercase border active:ring-4 ring-[#0d6efd] ring-opacity-30 border-[#ced4da] cursor-pointer rounded-md flex font-semibold items-center justify-center bg-white">
                   Select a logo
                 </div>
                 <Form.Control
-                  id='file-input'
-                  className='visually-hidden'
-                  type='file'
+                  id="file-input"
+                  className="visually-hidden"
+                  type="file"
                   onChange={handleLogoChange}
                 />
               </Form.Label>
             )}
-            <FloatingLabel label='Style of the QR Code modules'>
+            <FloatingLabel label="Style of the QR Code modules">
               <Form.Select onChange={(event) => setQrStyle(event.target.value)}>
-                <option value='squares'>Squares</option>
-                <option value='dots'>Dots</option>
+                <option value="squares">Squares</option>
+                <option value="dots">Dots</option>
               </Form.Select>
             </FloatingLabel>
-            <FloatingLabel label='Padding area around the logo'>
+            <FloatingLabel label="Padding area around the logo">
               <Form.Select
-                onChange={(event) => setLogoPaddingStyle(event.target.value)}>
-                <option value='square'>Square</option>
-                <option value='circle'>Circle</option>
+                onChange={(event) => setLogoPaddingStyle(event.target.value)}
+              >
+                <option value="square">Square</option>
+                <option value="circle">Circle</option>
               </Form.Select>
             </FloatingLabel>
-            <Form.Label className='text-white font-semibold'>
+            <Form.Label className=" font-semibold">
               Eye Radius {eyeRadius?.toString()}
             </Form.Label>
             <Form.Range
@@ -166,7 +170,7 @@ export const GenerateQR: React.FC<GenerateProps> = () => {
               value={eyeRadius}
               onChange={(event) => setEyeRadius(parseInt(event.target.value))}
             />
-            <Form.Label className='text-white font-semibold'>
+            {/* <Form.Label className=" font-semibold">
               Quiet Zone {quietZone?.toString()}
             </Form.Label>
             <Form.Range
@@ -174,20 +178,20 @@ export const GenerateQR: React.FC<GenerateProps> = () => {
               max={60}
               value={quietZone}
               onChange={(event) => setQuietZone(event.target.valueAsNumber)}
-            />
-            <div className='grid grid-flow-col gap-12 place-items-center'>
-              <Form.Label className='grid w-full place-items-start gap-2 text-white font-semibold'>
+            /> */}
+            <div className="grid grid-flow-col gap-12 place-items-center">
+              <Form.Label className="grid w-full place-items-start gap-2  font-semibold">
                 Logo background
                 <Form.Check
                   label={removeQrCodeBehindLogo === false ? "Off" : "On"}
-                  type='switch'
+                  type="switch"
                   onChange={(event) => {
                     setRemoveQrCodeBehindLogo(event.target.checked);
                     removeQrCodeBehindLogo !== false && setLogoPadding(0);
                   }}
                 />
               </Form.Label>
-              <Form.Label className='grid w-full place-items-start gap-2 text-white font-semibold'>
+              <Form.Label className="grid w-full place-items-start gap-2  font-semibold">
                 Logo Padding {logoPadding?.toString()}
                 <Form.Range
                   disabled={!removeQrCodeBehindLogo}
@@ -201,8 +205,8 @@ export const GenerateQR: React.FC<GenerateProps> = () => {
               </Form.Label>
             </div>
 
-            <div className='grid grid-flow-col gap-12 place-items-center'>
-              <Form.Label className='grid w-full place-items-start gap-2 text-white font-semibold'>
+            <div className="grid grid-flow-col gap-12 place-items-center">
+              <Form.Label className="grid w-full place-items-start gap-2  font-semibold">
                 Logo Width {(logoWidth / 100)?.toString()}
                 <Form.Range
                   min={100}
@@ -211,7 +215,7 @@ export const GenerateQR: React.FC<GenerateProps> = () => {
                   onChange={(event) => setLogoWidth(event.target.valueAsNumber)}
                 />
               </Form.Label>
-              <Form.Label className='grid w-full place-items-start gap-2 text-white font-semibold'>
+              <Form.Label className="grid w-full place-items-start gap-2  font-semibold">
                 Logo Height {(logoHeight / 100)?.toString()}
                 <Form.Range
                   min={100}
@@ -223,87 +227,98 @@ export const GenerateQR: React.FC<GenerateProps> = () => {
                 />
               </Form.Label>
             </div>
-            <div className='flex gap-6'>
+            <div className="flex gap-6 justify-between">
               <Form.Label
-                className='grid place-items-center gap-3 text-white font-semibold'
-                htmlFor='fgColor'>
+                className="grid place-items-center gap-3  font-semibold"
+                htmlFor="fgColor"
+              >
                 Code color
                 <Form.Control
-                  type='color'
-                  id='fgColor'
-                  defaultValue='#000000'
-                  title='Choose your color'
+                  type="color"
+                  id="fgColor"
+                  defaultValue="#000000"
+                  title="Choose your color"
                   onChange={(event) => setFgColor(event.target.value)}
                 />
               </Form.Label>
               <Form.Label
-                className='grid place-items-center gap-3 text-white font-semibold'
-                htmlFor='bgColor'>
+                className="grid place-items-center gap-3  font-semibold"
+                htmlFor="bgColor"
+              >
                 Background
                 <Form.Control
-                  type='color'
-                  id='bgColor'
-                  defaultValue='#FFFFFF'
-                  title='Choose your color'
+                  type="color"
+                  id="bgColor"
+                  defaultValue="#FFFFFF"
+                  title="Choose your color"
                   onChange={(event) => setBgColor(event.target.value)}
                 />
               </Form.Label>
               <Form.Label
-                className='grid place-items-center gap-3 text-white font-semibold'
-                htmlFor='bgColor'>
+                className="grid place-items-center gap-3  font-semibold"
+                htmlFor="bgColor"
+              >
                 Eye color
                 <Form.Control
-                  type='color'
-                  id='eyeColor'
-                  defaultValue=''
-                  title='Choose your color'
+                  type="color"
+                  id="eyeColor"
+                  defaultValue=""
+                  title="Choose your color"
                   onChange={(event) => setEyeColor(event.target.value)}
                 />
               </Form.Label>
             </div>
           </Form>
         </div>
-        {qrCode && (
-          <div className='flex space-y-4 flex-col w-fit'>
-            <>
-              <QRCode
-                id='qr-code'
-                value={qrCode}
-                removeQrCodeBehindLogo={removeQrCodeBehindLogo}
-                size={400}
-                logoImage={logoImage}
-                logoPaddingStyle={
-                  logoPaddingStyle === "circle" ? "circle" : "square"
-                }
-                logoPadding={logoPadding}
-                eyeRadius={
-                  Array.isArray(eyeRadius)
-                    ? eyeRadius
-                    : typeof eyeRadius === "number"
-                    ? [eyeRadius, eyeRadius, eyeRadius]
-                    : undefined
-                }
-                eyeColor={eyeColor}
-                quietZone={quietZone}
-                ecLevel='H'
-                fgColor={fgColor}
-                bgColor={bgColor}
-                qrStyle={qrStyle === "dots" ? "dots" : "squares"}
-                logoWidth={logoWidth}
-                logoHeight={logoHeight}
-              />
-              <Button
-                className='w-full'
-                variant='success'
-                onClick={() => {
-                  handleDownload();
-                  uploadImage();
-                }}>
-                Save and Download QR Code
-              </Button>
-            </>
+        <div className="flex justify-center">
+          <div className="space-y-4 flex-col flex w-full items-center">
+            {qrCode ? (
+              <>
+                <QRCode
+                  id="qr-code"
+                  value={qrCode}
+                  removeQrCodeBehindLogo={removeQrCodeBehindLogo}
+                  size={300}
+                  logoImage={logoImage}
+                  logoPaddingStyle={
+                    logoPaddingStyle === "circle" ? "circle" : "square"
+                  }
+                  logoPadding={logoPadding}
+                  eyeRadius={
+                    Array.isArray(eyeRadius)
+                      ? eyeRadius
+                      : typeof eyeRadius === "number"
+                      ? [eyeRadius, eyeRadius, eyeRadius]
+                      : undefined
+                  }
+                  eyeColor={eyeColor}
+                  quietZone={20}
+                  ecLevel="H"
+                  fgColor={fgColor}
+                  bgColor={bgColor}
+                  qrStyle={qrStyle === "dots" ? "dots" : "squares"}
+                  logoWidth={logoWidth}
+                  logoHeight={logoHeight}
+                />
+              </>
+            ) : (
+              <div className=" w-full md:w-[340px] h-[340px]  border rounded-lg uppercase text-4xl items-center justify-center flex text-white/60">
+                <h1>Empty URL</h1>
+              </div>
+            )}
+            <Button
+              disabled={!qrCode}
+              className="w-full uppercase"
+              size="lg"
+              onClick={() => {
+                handleDownload();
+                uploadImage();
+              }}
+            >
+              Save and Download
+            </Button>
           </div>
-        )}
+        </div>
       </div>
     </>
   );
