@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import html2canvas from "html2canvas";
 import { Form, Button, FloatingLabel } from "react-bootstrap";
-import { QRCode, EyeColor } from "react-qrcode-logo";
+import { QRCode } from "react-qrcode-logo";
 import { storage } from "@/firebase.config";
 import { getDownloadURL, ref, uploadString } from "firebase/storage";
 import { saveQRCode } from "@/utils/firebaseFunctions";
 
-interface GenerateProps {}
-
-export const GenerateQR: React.FC<GenerateProps> = () => {
+export const GenerateQR = () => {
   const [logoImage, setLogoImage] = useState<string>("");
   const [qrCode, setQrCode] = useState<string>("");
   const [qrStyle, setQrStyle] = useState<string>("squares");
@@ -18,14 +16,11 @@ export const GenerateQR: React.FC<GenerateProps> = () => {
   const [quietZone, setQuietZone] = useState<number>(10);
   const [fgColor, setFgColor] = useState<string>("#000000");
   const [bgColor, setBgColor] = useState<string>("#FFFFFF");
-  const [eyeColor, setEyeColor] = useState<
-    EyeColor | [EyeColor, EyeColor, EyeColor] | undefined
-  >(undefined);
+  const [eyeColor, setEyeColor] = useState<string | undefined>(undefined);
   const [logoWidth, setLogoWidth] = useState<number>(100);
   const [logoHeight, setLogoHeight] = useState<number>(100);
   const [removeQrCodeBehindLogo, setRemoveQrCodeBehindLogo] =
     useState<boolean>(false);
-
   const [downloadURL, setDownloadURL] = useState<string>("");
   const [canvasImage, setCanvasImage] = useState<string>("");
 
